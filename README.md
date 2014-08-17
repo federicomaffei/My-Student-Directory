@@ -27,13 +27,17 @@ The main aim of the project is creating an application which allows to create a 
 
   * From command line enter: 
 ```bash
+git clone git@github.com:federicomaffei/My-Student-Directory.git
+cd My-Student-Directory
 ruby lib/student-directory-app.rb
 ```
 
 * How to test the application:
 
-  * From command line enter: 
+  * From command line enter:
 ```bash
+git clone git@github.com:federicomaffei/My-Student-Directory.git
+cd My-Student-Directory
 rspec
 ```
 * Possible future adds to the features:
