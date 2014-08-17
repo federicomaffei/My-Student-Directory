@@ -35,7 +35,6 @@ describe StudentDirectory do
 	end
 
 	describe 'write students to csv' do
-
 		it 'adds the student list to a file' do
 			@dir.add_student("Federico", 'May', "federico@test.com", "1")
 			@dir.add_student("John", 'May', "john@test.com", "2")
@@ -44,7 +43,21 @@ describe StudentDirectory do
 			@dir.load_csv("directory_test.csv")
 			expect(@dir.student_list.length).to eq 2
 		end
+	end
 
+	describe 'delete students' do
+		it 'deletes a student from the list' do
+			@dir.add_student("Federico", 'May', "federico@test.com", "1")
+			@dir.add_student("John", 'May', "john@test.com", "2")	
+			@dir.delete_student('1', "directory_test.csv")
+			expect(@dir.student_list.length).to eq 1
+		end
+
+		it 'deletes a student from the csv file' do
+			@dir.load_csv("directory_test.csv")
+			@dir.delete_student('1', "directory_test.csv")
+			expect(@dir.student_list.length).to eq 1
+		end
 	end
 
 end

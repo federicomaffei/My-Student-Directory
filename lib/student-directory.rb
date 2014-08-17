@@ -36,5 +36,10 @@ class StudentDirectory
 		end
 		file.close
 	end
-	
+
+	def delete_student(rg, filename)
+		student_list.delete_if {|hash| hash[:rg] == rg}
+		write_to_csv(filename)
+	end
+
 end
