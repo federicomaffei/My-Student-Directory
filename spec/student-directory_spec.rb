@@ -34,4 +34,17 @@ describe StudentDirectory do
 		end
 	end
 
+	describe 'write students to csv' do
+
+		it 'adds the student list to a file' do
+			@dir.add_student("Federico", 'May', "federico@test.com", "1")
+			@dir.add_student("John", 'May', "john@test.com", "2")
+			@dir.write_to_csv("directory_test.csv")
+			@dir.student_list.clear #clear list to check if csv loads the two elements
+			@dir.load_csv("directory_test.csv")
+			expect(@dir.student_list.length).to eq 2
+		end
+
+	end
+
 end
