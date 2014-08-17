@@ -1,4 +1,41 @@
 My-Student-Directory
 ====================
 
-Week 1 project at Makers Academy - my TDD version
+Student Directory is the Week 1 project I did during Week 1 at [Makers Academy](http://www.makersacademy.com).
+
+The main aim of the project is creating an application which allows to create a directory for Makers students.
+
+* The feature I implemented via TDD are:
+
+1. The ability to store students with informations such as: name, e-mail, cohort and ID, all assigned from a user.
+
+2. The ability to return the list of students, formatted in a readable way.
+
+3. The ability to delete the students from the list.
+
+4. The ability to save the students in a .csv file, to store them after exiting from the application.
+
+5. The ability to load the students from the csv file and have them displayed in a readable way.
+
+* The programming languages and technologies I used are:
+
+..* Ruby
+
+..* Rspec
+
+* How to run the application:
+
+..* From command line enter: 
+```bash
+ruby lib/student-directory-app.rb
+```
+
+* How to test the application:
+
+..* From command line enter: 
+```bash
+rspec
+```
+* Possible future implementations:
+
+
