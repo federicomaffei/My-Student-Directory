@@ -1,7 +1,7 @@
 My-Student-Directory
 ====================
 
-Student Directory is the Week 1 project I did during Week 1 at [Makers Academy](http://www.makersacademy.com).
+Student Directory is the Week 1 project I worked on at [Makers Academy](http://www.makersacademy.com).
 
 The main aim of the project is creating an application which allows to create a directory for Makers students.
 
@@ -41,5 +41,9 @@ cd My-Student-Directory
 rspec
 ```
 * Possible future adds to the features:
+
+  * Assign incremental ID to students, to avoid user entering multiple entries with same ID.
+
+  * Throw exception messages when the user input is not consistent.
 
 
