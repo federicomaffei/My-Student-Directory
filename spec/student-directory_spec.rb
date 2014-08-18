@@ -84,5 +84,49 @@ describe StudentDirectory do
 				@dir.interactive_menu
 			end
 		end
+
+		context 'user choice handling' do
+			it 'allows the user to input a student if 1 is entered' do
+				expect(STDOUT).to receive(:puts).with("Please enter the name, cohort, email and ID of the student, separated by comma")
+				expect(STDIN).to receive(:gets).and_return("Federico,May,test@test.com,1")
+				expect(STDOUT).to receive(:puts).with("Now we have 1 students")
+				@dir.user_choice("1")
+				expect(@dir.student_list[0][:name]).to eq 'Federico'
+				expect(@dir.student_list[0][:cohort]).to eq 'May'
+				expect(@dir.student_list[0][:email]).to eq 'test@test.com'
+				expect(@dir.student_list[0][:rg]).to eq '1'
+			end
+
+			it 'allows the user to see the student list if 2 is entered' do
+				expect(STDOUT).to receive(:puts).with("Please enter the name, cohort, email and ID of the student, separated by comma")
+				expect(STDIN).to receive(:gets).and_return("Federico,May,test@test.com,1")
+				expect(STDOUT).to receive(:puts).with("Now we have 1 students")
+				@dir.user_choice("1")
+				expect(STDOUT).to receive(:puts).with("Student 1 is named Federico, attending the May cohort, with email address test@test.com and ID 1")
+				@dir.user_choice("2")
+			end
+
+			it 'allows the user to save the student list to csv if 3 is entered and load from that file if 4 is entered' do
+				expect(STDOUT).to receive(:puts).with("Please enter the name, cohort, email and ID of the student, separated by comma")
+				expect(STDIN).to receive(:gets).and_return("Federico,May,test@test.com,1")
+				expect(STDOUT).to receive(:puts).with("Now we have 1 students")
+				@dir.user_choice("1")
+				@dir.user_choice("3")
+				@dir.student_list.clear
+				@dir.user_choice("4")
+				expect(@dir.student_list.length).to eq 1
+			end
+
+			it 'allows the user to delete an added student if 5 is entered' do
+				expect(STDOUT).to receive(:puts).with("Please enter the name, cohort, email and ID of the student, separated by comma")
+				expect(STDIN).to receive(:gets).and_return("Federico,May,test@test.com,1")
+				expect(STDOUT).to receive(:puts).with("Now we have 1 students")
+				@dir.user_choice("1")
+				expect(STDOUT).to receive(:puts).with("Please enter the ID of the student to delete:")
+				expect(STDIN).to receive(:gets).and_return("1")
+				@dir.user_choice("5")
+				expect(@dir.student_list.length).to eq 0
+			end
+		end
 	end
 end

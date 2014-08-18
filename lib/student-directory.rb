@@ -10,6 +10,13 @@ class StudentDirectory
 		student_list << {name: name, cohort: cohort, email: email, rg: rg}
 	end
 
+	def input_students
+		puts "Please enter the name, cohort, email and ID of the student, separated by comma"
+		name, cohort, email, rg = STDIN.gets.chomp.split(',')
+		add_student(name, cohort, email, rg)
+		puts "Now we have #{count_students} students"
+	end
+
 	def count_students
 		count = student_list.length
 	end
@@ -58,6 +65,26 @@ class StudentDirectory
 		line5 = "5. Delete a student from the directory"
 		line6 = "9. Exit"
 		puts "\n"+line1+"\n"+line2+"\n"+line3+"\n"+line4+"\n"+line5+"\n"+line6+"\n"
+	end
+
+	def user_choice(choice)
+		case choice
+		when "1"
+			input_students
+		when "2"				
+			show_added_students
+		when "3"
+			write_to_csv("directory.csv")
+		when "4"
+			load_csv("directory.csv")
+		when "5"
+			puts "Please enter the ID of the student to delete:"
+			delete_student(STDIN.gets.chomp, "directory.csv")
+		when "9"
+			exit
+		else 
+			puts "I did not understand your input"
+		end
 	end
 
 end
