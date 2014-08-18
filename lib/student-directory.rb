@@ -87,4 +87,13 @@ class StudentDirectory
 		end
 	end
 
+	def application_logic
+		loop do
+			print_header
+			interactive_menu
+			print_footer
+			user_choice(STDIN.gets.chomp)
+		end
+	end
+
 end
