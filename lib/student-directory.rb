@@ -42,4 +42,22 @@ class StudentDirectory
 		write_to_csv(filename)
 	end
 
+	def print_header
+		puts "\n"+'Welcome to Makers Academy Student Directory:'
+	end
+
+	def print_footer
+		puts "\n"+"Overall, we have #{count_students} students at Makers Academy."+"\n"
+	end
+
+	def interactive_menu 
+		line1 = "1. Input a student in the directory"
+		line2 = "2. Show the students in the directory"
+		line3 = "3. Save the students to a csv file"
+		line4 = "4. Load the student's list from csv file"
+		line5 = "5. Delete a student from the directory"
+		line6 = "9. Exit"
+		puts "\n"+line1+"\n"+line2+"\n"+line3+"\n"+line4+"\n"+line5+"\n"+line6+"\n"
+	end
+
 end
